@@ -1,0 +1,47 @@
+.cf7-guests-field {
+  display: block;
+  max-width: 420px;
+}
+
+.cf7-guests-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.cf7-guests-total,
+.cf7-guests-row input,
+.cf7-guests-age-row input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cf7-guests-panel {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.cf7-guests-row,
+.cf7-guests-age-row {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.cf7-guests-help {
+  margin: 8px 0 0;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+@media (max-width: 480px) {
+  .cf7-guests-row,
+  .cf7-guests-age-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
