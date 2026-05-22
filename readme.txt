@@ -1,6 +1,6 @@
 === CF7 Guests Field ===
 Contributors: swaranan
-Tags: contact form 7, cf7, guests, booking, adults, children, child ages
+Tags: contact form 7, cf7, guests, adults, children
 Requires at least: 5.8
 Tested up to: 6.5
 Requires PHP: 7.4
