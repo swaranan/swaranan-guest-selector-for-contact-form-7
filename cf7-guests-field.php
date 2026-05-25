@@ -54,7 +54,7 @@ final class CF7_Guests_Field_Plugin {
 
         wp_enqueue_script(
             'cf7-guests-field-admin',
-            plugin_dir_url(__FILE__) . 'assets/js/cf7-guests-field-admin.js',
+            plugin_dir_url(__FILE__) . 'resources/js/cf7-guests-field-admin.js',
             array('jquery'),
             self::VERSION,
             true
@@ -151,14 +151,14 @@ final class CF7_Guests_Field_Plugin {
 
         wp_enqueue_style(
             'cf7-guests-field',
-            plugin_dir_url(__FILE__) . 'assets/css/cf7-guests-field.css',
+            plugin_dir_url(__FILE__) . 'resources/css/cf7-guests-field.css',
             array(),
             self::VERSION
         );
 
         wp_enqueue_script(
             'cf7-guests-field',
-            plugin_dir_url(__FILE__) . 'assets/js/cf7-guests-field.js',
+            plugin_dir_url(__FILE__) . 'resources/js/cf7-guests-field.js',
             array(),
             self::VERSION,
             true

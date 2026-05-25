@@ -90,9 +90,8 @@ Example:
 == Screenshots ==
 
 1. Guests button inside Contact Form 7 editor
-2. Frontend guest selector
-3. Adults & Children dropdown UI
-4. Child age fields example
+2. Guests option inside Contact Form 7 editor
+3. Frontend - Adults & Children dropdown UI with Children age
 
 == Changelog ==
 
