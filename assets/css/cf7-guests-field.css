@@ -1,47 +1,82 @@
-.cf7-guests-field {
-  display: block;
-  max-width: 420px;
-}
-
-.cf7-guests-label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.cf7-guests-total,
-.cf7-guests-row input,
-.cf7-guests-age-row input {
-  width: 100%;
+.cf7-guests-field,
+.cf7-guests-field * {
   box-sizing: border-box;
 }
 
-.cf7-guests-panel {
-  margin-top: 12px;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+.cf7-guests-panel[hidden] {
+  display: none !important;
 }
 
-.cf7-guests-row,
-.cf7-guests-age-row {
-  display: grid;
-  grid-template-columns: 1fr 120px;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+.cf7-guests-card {
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff;
 }
 
+.cf7-guests-block-total + .cf7-guests-card,
+.cf7-guests-panel > .cf7-guests-block + .cf7-guests-block,
+.cf7-guests-ages-section,
 .cf7-guests-help {
-  margin: 8px 0 0;
-  font-size: 13px;
-  opacity: 0.75;
+  margin-top: 1rem;
 }
 
-@media (max-width: 480px) {
-  .cf7-guests-row,
-  .cf7-guests-age-row {
+.cf7-guests-heading {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.cf7-guests-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cf7-guests-child-ages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.cf7-guests-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.75rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.cf7-guests-total,
+.cf7-guests-adults,
+.cf7-guests-children,
+.cf7-guests-child-age {
+  width: 100%;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  background: transparent;
+  box-shadow: none !important;
+  font: inherit;
+}
+
+.cf7-guests-age-row label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .cf7-guests-split,
+  .cf7-guests-child-ages {
     grid-template-columns: 1fr;
-    gap: 4px;
   }
 }

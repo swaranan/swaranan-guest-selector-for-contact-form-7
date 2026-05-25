@@ -27,6 +27,7 @@
       if (value !== '') {
         if (inputName === 'id') parts.push('id:' + value);
         else if (inputName === 'class') parts.push('class:' + value);
+        else if (inputName === 'label') parts.push('label:' + value.replace(/\s+/g, '_'));
         else parts.push(inputName + ':' + value);
       }
     });

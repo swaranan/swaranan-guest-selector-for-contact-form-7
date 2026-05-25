@@ -111,6 +111,11 @@ final class CF7_Guests_Field_Plugin {
             </fieldset>
 
             <fieldset>
+                <legend><label for="tag-generator-panel-cf7-guests-label"><?php esc_html_e('Total guests label', 'cf7-guests-field'); ?></label></legend>
+                <input type="text" id="tag-generator-panel-cf7-guests-label" class="oneline" value="<?php echo esc_attr__('Total Guests', 'cf7-guests-field'); ?>" data-tag-part="option" data-tag-option="label:" />
+            </fieldset>
+
+            <fieldset>
                 <legend><?php esc_html_e('Children ages', 'cf7-guests-field'); ?></legend>
                 <label><input type="checkbox" data-tag-part="option" data-tag-option="child_ages" /> <?php esc_html_e('Add an age field for each child', 'cf7-guests-field'); ?></label>
             </fieldset>
@@ -128,8 +133,8 @@ final class CF7_Guests_Field_Plugin {
 
         <footer class="insert-box">
             <div class="flex-container">
-                <input type="text" class="code" readonly="readonly" onfocus="this.select()" data-tag-part="tag" aria-label="<?php esc_attr_e('The form-tag to be inserted into the form template', 'contact-form-7'); ?>" />
-                <button type="button" class="button-primary" data-taggen="insert-tag"><?php esc_html_e('Insert Tag', 'contact-form-7'); ?></button>
+                <input type="text" class="code" readonly="readonly" onfocus="this.select()" data-tag-part="tag" aria-label="<?php esc_attr_e('The form-tag to be inserted into the form template', 'cf7-guests-field'); ?>" />
+                <button type="button" class="button-primary" data-taggen="insert-tag"><?php esc_html_e('Insert Tag', 'cf7-guests-field'); ?></button>
             </div>
             <p class="mail-tag-tip">
                 <?php esc_html_e('To use the total guests value in mail, insert the corresponding mail-tag', 'cf7-guests-field'); ?> <strong data-tag-part="mail-tag"></strong>.
@@ -188,6 +193,7 @@ final class CF7_Guests_Field_Plugin {
         $default_adults = $this->get_int_option($tag, 'adults', 0);
         $default_children = $this->get_int_option($tag, 'children', 0);
         $child_ages_enabled = $tag->has_option('child_ages') || $tag->has_option('child-ages') || $tag->has_option('ages');
+        $total_label = $this->get_text_option($tag, 'label', __('Total Guests', 'cf7-guests-field'));
 
         $default_total = min(max($default_total, $min), $max);
         $default_adults = min(max($default_adults, 0), $max);
@@ -202,36 +208,57 @@ final class CF7_Guests_Field_Plugin {
         $adults_name = $name . '_adults';
         $children_name = $name . '_children';
         $ages_name = $name . '_children_ages[]';
+        /* translators: %s: total guests field label. */
+        $required_total_label = sprintf(__('%s (required)', 'cf7-guests-field'), $total_label);
 
         ob_start();
         ?>
         <span class="wpcf7-form-control-wrap" data-name="<?php echo esc_attr($name); ?>">
             <div id="<?php echo esc_attr($id); ?>" class="cf7-guests-field <?php echo esc_attr($class); ?>" data-name="<?php echo esc_attr($name); ?>" data-min="<?php echo esc_attr($min); ?>" data-max="<?php echo esc_attr($max); ?>" data-child-ages="<?php echo $child_ages_enabled ? '1' : '0'; ?>">
-                <label class="cf7-guests-label" for="<?php echo esc_attr($id); ?>-total">Guests<?php echo $required ? ' *' : ''; ?></label>
-                <input
-                    type="number"
-                    id="<?php echo esc_attr($id); ?>-total"
-                    name="<?php echo esc_attr($total_name); ?>"
-                    class="wpcf7-form-control wpcf7-number cf7-guests-total"
-                    min="<?php echo esc_attr($min); ?>"
-                    max="<?php echo esc_attr($max); ?>"
-                    value="<?php echo esc_attr($default_total); ?>"
-                    <?php echo $required ? 'aria-required="true" required' : ''; ?>
-                />
+                <div class="cf7-guests-block cf7-guests-block-total">
+                    <label class="cf7-guests-heading" for="<?php echo esc_attr($id); ?>-total"><?php echo esc_html($total_label); ?><?php echo $required ? ' *' : ''; ?></label>
+                    <div class="cf7-guests-control cf7-guests-control-total">
+                        <select
+                            id="<?php echo esc_attr($id); ?>-total"
+                            name="<?php echo esc_attr($total_name); ?>"
+                            class="wpcf7-form-control cf7-guests-total"
+                            aria-label="<?php echo esc_attr($required ? $required_total_label : $total_label); ?>"
+                            <?php echo $required ? 'aria-required="true" required' : ''; ?>
+                        >
+                            <?php echo $this->render_select_options($min, $max, $default_total); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                        </select>
+                    </div>
+                </div>
 
-                <div class="cf7-guests-panel" hidden>
-                    <div class="cf7-guests-row">
-                        <label for="<?php echo esc_attr($id); ?>-adults">Adults</label>
-                        <input type="number" id="<?php echo esc_attr($id); ?>-adults" name="<?php echo esc_attr($adults_name); ?>" class="cf7-guests-adults" min="0" max="<?php echo esc_attr($max); ?>" value="<?php echo esc_attr($default_adults); ?>" />
+                <div class="cf7-guests-card" <?php echo $default_total === 0 ? 'hidden' : ''; ?>>
+                    <div class="cf7-guests-panel" hidden>
+                        <div class="cf7-guests-split">
+                            <div class="cf7-guests-block">
+                                <label class="cf7-guests-heading" for="<?php echo esc_attr($id); ?>-adults"><?php esc_html_e('Adults', 'cf7-guests-field'); ?></label>
+                                <div class="cf7-guests-control cf7-guests-control-adults">
+                                    <select id="<?php echo esc_attr($id); ?>-adults" name="<?php echo esc_attr($adults_name); ?>" class="cf7-guests-adults">
+                                        <?php echo $this->render_select_options(0, max($default_total, 0), $default_adults); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="cf7-guests-block">
+                                <label class="cf7-guests-heading" for="<?php echo esc_attr($id); ?>-children"><?php esc_html_e('Children', 'cf7-guests-field'); ?></label>
+                                <div class="cf7-guests-control cf7-guests-control-children">
+                                    <select id="<?php echo esc_attr($id); ?>-children" name="<?php echo esc_attr($children_name); ?>" class="cf7-guests-children">
+                                        <?php echo $this->render_select_options(0, max($default_total, 0), $default_children); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php if ($child_ages_enabled) : ?>
+                            <div class="cf7-guests-ages-section" <?php echo $default_children === 0 ? 'hidden' : ''; ?>>
+                                <div class="cf7-guests-heading"><?php esc_html_e('Children Ages (optional)', 'cf7-guests-field'); ?></div>
+                                <div class="cf7-guests-child-ages" data-age-name="<?php echo esc_attr($ages_name); ?>"></div>
+                            </div>
+                        <?php endif; ?>
+
                     </div>
-                    <div class="cf7-guests-row">
-                        <label for="<?php echo esc_attr($id); ?>-children">Children</label>
-                        <input type="number" id="<?php echo esc_attr($id); ?>-children" name="<?php echo esc_attr($children_name); ?>" class="cf7-guests-children" min="0" max="<?php echo esc_attr($max); ?>" value="<?php echo esc_attr($default_children); ?>" />
-                    </div>
-                    <?php if ($child_ages_enabled) : ?>
-                        <div class="cf7-guests-child-ages" data-age-name="<?php echo esc_attr($ages_name); ?>"></div>
-                    <?php endif; ?>
-                    <p class="cf7-guests-help">Adults + Children must equal total Guests.</p>
                 </div>
             </div>
         </span>
@@ -239,9 +266,47 @@ final class CF7_Guests_Field_Plugin {
         return ob_get_clean();
     }
 
+    private function render_select_options($min, $max, $selected_value) {
+        $options = '';
+
+        for ($i = $min; $i <= $max; $i++) {
+            $options .= sprintf(
+                '<option value="%1$s"%2$s>%1$s</option>',
+                esc_attr((string) $i),
+                selected($selected_value, $i, false)
+            );
+        }
+
+        return $options;
+    }
+
     private function get_int_option($tag, $option, $fallback) {
         $value = $tag->get_option($option, 'int', true);
         return is_numeric($value) ? absint($value) : $fallback;
+    }
+
+    private function get_text_option($tag, $option, $fallback) {
+        $values = array();
+
+        if (!empty($tag->options) && is_array($tag->options)) {
+            foreach ($tag->options as $tag_option) {
+                if (strpos($tag_option, $option . ':') === 0) {
+                    $values[] = substr($tag_option, strlen($option) + 1);
+                }
+            }
+        }
+
+        if (empty($values)) {
+            $value = $tag->get_option($option, '', true);
+            if (is_array($value)) {
+                $value = reset($value);
+            }
+            $values = is_string($value) && $value !== '' ? array($value) : array();
+        }
+
+        $value = sanitize_text_field(str_replace('_', ' ', implode(' ', $values)));
+
+        return $value !== '' ? $value : $fallback;
     }
 
     public function validate_guests($result, $tag) {
@@ -255,10 +320,16 @@ final class CF7_Guests_Field_Plugin {
         $max = $this->get_int_option($tag, 'max', 20);
         $child_ages_enabled = $tag->has_option('child_ages') || $tag->has_option('child-ages') || $tag->has_option('ages');
 
-        $total = isset($_POST[$name]) ? absint($_POST[$name]) : 0;
-        $adults = isset($_POST[$name . '_adults']) ? absint($_POST[$name . '_adults']) : 0;
-        $children = isset($_POST[$name . '_children']) ? absint($_POST[$name . '_children']) : 0;
-        $ages = isset($_POST[$name . '_children_ages']) && is_array($_POST[$name . '_children_ages']) ? array_map('absint', $_POST[$name . '_children_ages']) : array();
+        $post_data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+        if (!is_array($post_data)) {
+            $post_data = array();
+        }
+
+        $total = isset($post_data[$name]) ? absint($post_data[$name]) : 0;
+        $adults = isset($post_data[$name . '_adults']) ? absint($post_data[$name . '_adults']) : 0;
+        $children = isset($post_data[$name . '_children']) ? absint($post_data[$name . '_children']) : 0;
+        $ages = isset($post_data[$name . '_children_ages']) && is_array($post_data[$name . '_children_ages']) ? array_map('absint', $post_data[$name . '_children_ages']) : array();
 
         if ($required && $total <= 0) {
             $result->invalidate($tag, 'Please enter the number of guests.');
@@ -307,7 +378,12 @@ final class CF7_Guests_Field_Plugin {
     }
 
     private function build_summary_from_post() {
-        $posted = wp_unslash($_POST);
+        $posted = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+        if (!is_array($posted)) {
+            $posted = array();
+        }
+
         $lines = array();
 
         foreach ($posted as $key => $value) {
