@@ -1,6 +1,6 @@
-WordPress.org plugin directory assets for Guest Selector Field.
+WordPress.org plugin directory assets for Smart Guest Selector for Contact Form 7.
 
-Use these files in the plugin SVN repository's top-level `assets/` directory:
+Use these files as the WordPress.org directory assets for the plugin:
 
 - `icon-128x128.png`
 - `icon-256x256.png`

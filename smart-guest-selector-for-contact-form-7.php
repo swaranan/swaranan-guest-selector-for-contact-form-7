@@ -1,18 +1,19 @@
 <?php
 /**
- * Plugin Name: Guest Selector Field
- * Description: Adds a dynamic Guests field for Contact Form 7 with Adults, Children, and optional child age inputs.
+ * Plugin Name: Smart Guest Selector for Contact Form 7
+ * Description: Adds a guest selector field for Contact Form 7 with adults, children, and optional child age inputs.
  * Version: 1.1.0
  * Author: swaranan
  * License: GPL-2.0-or-later
  * Requires Plugins: contact-form-7
+ * Text Domain: smart-guest-selector-for-contact-form-7
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-final class Guest_Selector_Field_Plugin {
+final class Swaranan_Guest_Selector_For_Contact_Form_7_Plugin {
     const VERSION = '1.1.0';
 
     public function __construct() {
@@ -39,7 +40,7 @@ final class Guest_Selector_Field_Plugin {
         if (!current_user_can('activate_plugins')) {
             return;
         }
-        echo '<div class="notice notice-error"><p><strong>Guest Selector Field</strong> requires Contact Form 7 to be installed and active.</p></div>';
+        echo '<div class="notice notice-error"><p><strong>Smart Guest Selector for Contact Form 7</strong> requires Contact Form 7 to be installed and active.</p></div>';
     }
 
 
@@ -53,8 +54,8 @@ final class Guest_Selector_Field_Plugin {
         }
 
         wp_enqueue_script(
-            'guest-selector-field-admin',
-            plugin_dir_url(__FILE__) . 'resources/js/guest-selector-field-admin.js',
+            'smart-guest-selector-for-contact-form-7-admin',
+            plugin_dir_url(__FILE__) . 'includes/js/smart-guest-selector-for-contact-form-7-admin.js',
             array('jquery'),
             self::VERSION,
             true
@@ -69,7 +70,7 @@ final class Guest_Selector_Field_Plugin {
         $tag_generator = WPCF7_TagGenerator::get_instance();
         $tag_generator->add(
             'guest_selector',
-            __('guests', 'guest-selector-field'),
+            __('guests', 'smart-guest-selector-for-contact-form-7'),
             array($this, 'tag_generator_panel'),
             array('version' => 2)
         );
@@ -78,73 +79,73 @@ final class Guest_Selector_Field_Plugin {
     public function tag_generator_panel($contact_form, $args = '') {
         ?>
         <header class="description-box">
-            <h3><?php esc_html_e('Guests form-tag generator', 'guest-selector-field'); ?></h3>
-            <p><?php esc_html_e('Generate a Guests field. The visitor enters total guests, then selects adults and children. Child age fields can be enabled optionally.', 'guest-selector-field'); ?></p>
+            <h3><?php esc_html_e('Guests form-tag generator', 'smart-guest-selector-for-contact-form-7'); ?></h3>
+            <p><?php esc_html_e('Generate a Guests field. The visitor enters total guests, then selects adults and children. Child age fields can be enabled optionally.', 'smart-guest-selector-for-contact-form-7'); ?></p>
         </header>
 
         <div class="control-box">
             <input type="hidden" value="guest_selector" data-tag-part="basetype" />
 
             <fieldset>
-                <legend><?php esc_html_e('Field type', 'guest-selector-field'); ?></legend>
-                <label><input type="checkbox" value="*" data-tag-part="type-suffix" /> <?php esc_html_e('Required field', 'guest-selector-field'); ?></label>
+                <legend><?php esc_html_e('Field type', 'smart-guest-selector-for-contact-form-7'); ?></legend>
+                <label><input type="checkbox" value="*" data-tag-part="type-suffix" /> <?php esc_html_e('Required field', 'smart-guest-selector-for-contact-form-7'); ?></label>
             </fieldset>
 
             <fieldset>
-                <legend><label for="tag-generator-panel-guest-selector-name"><?php esc_html_e('Name', 'guest-selector-field'); ?></label></legend>
+                <legend><label for="tag-generator-panel-guest-selector-name"><?php esc_html_e('Name', 'smart-guest-selector-for-contact-form-7'); ?></label></legend>
                 <input type="text" id="tag-generator-panel-guest-selector-name" class="oneline" data-tag-part="name" />
             </fieldset>
 
             <fieldset>
-                <legend><label for="tag-generator-panel-guest-selector-min"><?php esc_html_e('Minimum guests', 'guest-selector-field'); ?></label></legend>
+                <legend><label for="tag-generator-panel-guest-selector-min"><?php esc_html_e('Minimum guests', 'smart-guest-selector-for-contact-form-7'); ?></label></legend>
                 <input type="number" id="tag-generator-panel-guest-selector-min" min="0" step="1" value="1" data-tag-part="option" data-tag-option="min:" />
             </fieldset>
 
             <fieldset>
-                <legend><label for="tag-generator-panel-guest-selector-max"><?php esc_html_e('Maximum guests', 'guest-selector-field'); ?></label></legend>
+                <legend><label for="tag-generator-panel-guest-selector-max"><?php esc_html_e('Maximum guests', 'smart-guest-selector-for-contact-form-7'); ?></label></legend>
                 <input type="number" id="tag-generator-panel-guest-selector-max" min="1" step="1" value="20" data-tag-part="option" data-tag-option="max:" />
             </fieldset>
 
             <fieldset>
-                <legend><label for="tag-generator-panel-guest-selector-default"><?php esc_html_e('Default total', 'guest-selector-field'); ?></label></legend>
+                <legend><label for="tag-generator-panel-guest-selector-default"><?php esc_html_e('Default total', 'smart-guest-selector-for-contact-form-7'); ?></label></legend>
                 <input type="number" id="tag-generator-panel-guest-selector-default" min="0" step="1" value="0" data-tag-part="option" data-tag-option="default:" />
             </fieldset>
 
             <fieldset>
-                <legend><label for="tag-generator-panel-guest-selector-label"><?php esc_html_e('Total guests label', 'guest-selector-field'); ?></label></legend>
-                <input type="text" id="tag-generator-panel-guest-selector-label" class="oneline" value="<?php echo esc_attr__('Total Guests', 'guest-selector-field'); ?>" data-tag-part="option" data-tag-option="label:" />
+                <legend><label for="tag-generator-panel-guest-selector-label"><?php esc_html_e('Total guests label', 'smart-guest-selector-for-contact-form-7'); ?></label></legend>
+                <input type="text" id="tag-generator-panel-guest-selector-label" class="oneline" value="<?php echo esc_attr__('Total Guests', 'smart-guest-selector-for-contact-form-7'); ?>" data-tag-part="option" data-tag-option="label:" />
             </fieldset>
 
             <fieldset>
-                <legend><?php esc_html_e('Dropdown label', 'guest-selector-field'); ?></legend>
-                <label><input type="checkbox" data-tag-part="option" data-tag-option="first_as_label" /> <?php esc_html_e('Use the label as the first dropdown option', 'guest-selector-field'); ?></label>
+                <legend><?php esc_html_e('Dropdown label', 'smart-guest-selector-for-contact-form-7'); ?></legend>
+                <label><input type="checkbox" data-tag-part="option" data-tag-option="first_as_label" /> <?php esc_html_e('Use the label as the first dropdown option', 'smart-guest-selector-for-contact-form-7'); ?></label>
             </fieldset>
 
             <fieldset>
-                <legend><?php esc_html_e('Children ages', 'guest-selector-field'); ?></legend>
-                <label><input type="checkbox" data-tag-part="option" data-tag-option="child_ages" /> <?php esc_html_e('Add an age field for each child', 'guest-selector-field'); ?></label>
+                <legend><?php esc_html_e('Children ages', 'smart-guest-selector-for-contact-form-7'); ?></legend>
+                <label><input type="checkbox" data-tag-part="option" data-tag-option="child_ages" /> <?php esc_html_e('Add an age field for each child', 'smart-guest-selector-for-contact-form-7'); ?></label>
             </fieldset>
 
             <fieldset>
-                <legend><label for="tag-generator-panel-guest-selector-id"><?php esc_html_e('Id attribute', 'guest-selector-field'); ?></label></legend>
+                <legend><label for="tag-generator-panel-guest-selector-id"><?php esc_html_e('Id attribute', 'smart-guest-selector-for-contact-form-7'); ?></label></legend>
                 <input type="text" id="tag-generator-panel-guest-selector-id" class="idvalue oneline" data-tag-part="option" data-tag-option="id:" />
             </fieldset>
 
             <fieldset>
-                <legend><label for="tag-generator-panel-guest-selector-class"><?php esc_html_e('Class attribute', 'guest-selector-field'); ?></label></legend>
+                <legend><label for="tag-generator-panel-guest-selector-class"><?php esc_html_e('Class attribute', 'smart-guest-selector-for-contact-form-7'); ?></label></legend>
                 <input type="text" id="tag-generator-panel-guest-selector-class" class="classvalue oneline" data-tag-part="option" data-tag-option="class:" />
             </fieldset>
         </div>
 
         <footer class="insert-box">
             <div class="flex-container">
-                <input type="text" class="code" readonly="readonly" onfocus="this.select()" data-tag-part="tag" aria-label="<?php esc_attr_e('The form-tag to be inserted into the form template', 'guest-selector-field'); ?>" />
-                <button type="button" class="button-primary" data-taggen="insert-tag"><?php esc_html_e('Insert Tag', 'guest-selector-field'); ?></button>
+                <input type="text" class="code" readonly="readonly" onfocus="this.select()" data-tag-part="tag" aria-label="<?php esc_attr_e('The form-tag to be inserted into the form template', 'smart-guest-selector-for-contact-form-7'); ?>" />
+                <button type="button" class="button-primary" data-taggen="insert-tag"><?php esc_html_e('Insert Tag', 'smart-guest-selector-for-contact-form-7'); ?></button>
             </div>
             <p class="mail-tag-tip">
-                <?php esc_html_e('To use the total guests value in mail, insert the corresponding mail-tag', 'guest-selector-field'); ?> <strong data-tag-part="mail-tag"></strong>.
+                <?php esc_html_e('To use the total guests value in mail, insert the corresponding mail-tag', 'smart-guest-selector-for-contact-form-7'); ?> <strong data-tag-part="mail-tag"></strong>.
             </p>
-            <p class="mail-tag-tip"><?php esc_html_e('You can also use [fieldname_adults], [fieldname_children], and [guest-selector-summary]. Replace fieldname with the field name.', 'guest-selector-field'); ?></p>
+            <p class="mail-tag-tip"><?php esc_html_e('You can also use [fieldname_adults], [fieldname_children], and [guest-selector-summary]. Replace fieldname with the field name.', 'smart-guest-selector-for-contact-form-7'); ?></p>
         </footer>
         <?php
     }
@@ -155,15 +156,15 @@ final class Guest_Selector_Field_Plugin {
         }
 
         wp_enqueue_style(
-            'guest-selector-field',
-            plugin_dir_url(__FILE__) . 'resources/css/guest-selector-field.css',
+            'smart-guest-selector-for-contact-form-7',
+            plugin_dir_url(__FILE__) . 'includes/css/smart-guest-selector-for-contact-form-7.css',
             array(),
             self::VERSION
         );
 
         wp_enqueue_script(
-            'guest-selector-field',
-            plugin_dir_url(__FILE__) . 'resources/js/guest-selector-field.js',
+            'smart-guest-selector-for-contact-form-7',
+            plugin_dir_url(__FILE__) . 'includes/js/smart-guest-selector-for-contact-form-7.js',
             array(),
             self::VERSION,
             true
@@ -198,7 +199,7 @@ final class Guest_Selector_Field_Plugin {
         $default_adults = $this->get_int_option($tag, 'adults', 0);
         $default_children = $this->get_int_option($tag, 'children', 0);
         $child_ages_enabled = $tag->has_option('child_ages') || $tag->has_option('child-ages') || $tag->has_option('ages');
-        $total_label = $this->get_text_option($tag, 'label', __('Total Guests', 'guest-selector-field'));
+        $total_label = $this->get_text_option($tag, 'label', __('Total Guests', 'smart-guest-selector-for-contact-form-7'));
         $first_as_label = $tag->has_option('first_as_label');
 
         $default_total = min(max($default_total, $min), $max);
@@ -215,7 +216,7 @@ final class Guest_Selector_Field_Plugin {
         $children_name = $name . '_children';
         $ages_name = $name . '_children_ages[]';
         /* translators: %s: total guests field label. */
-        $required_total_label = sprintf(__('%s (required)', 'guest-selector-field'), $total_label);
+        $required_total_label = sprintf(__('%s (required)', 'smart-guest-selector-for-contact-form-7'), $total_label);
 
         ob_start();
         ?>
@@ -242,7 +243,7 @@ final class Guest_Selector_Field_Plugin {
                     <div class="guest-selector-panel" hidden>
                         <div class="guest-selector-split">
                             <div class="guest-selector-block">
-                                <label class="guest-selector-sub-heading" for="<?php echo esc_attr($id); ?>-adults"><?php esc_html_e('Adults', 'guest-selector-field'); ?></label>
+                                <label class="guest-selector-sub-heading" for="<?php echo esc_attr($id); ?>-adults"><?php esc_html_e('Adults', 'smart-guest-selector-for-contact-form-7'); ?></label>
                                 <div class="guest-selector-control guest-selector-control-adults">
                                     <select id="<?php echo esc_attr($id); ?>-adults" name="<?php echo esc_attr($adults_name); ?>" class="guest-selector-adults">
                                         <?php echo $this->render_select_options(0, max($default_total, 0), $default_adults); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -250,7 +251,7 @@ final class Guest_Selector_Field_Plugin {
                                 </div>
                             </div>
                             <div class="guest-selector-block">
-                                <label class="guest-selector-sub-heading" for="<?php echo esc_attr($id); ?>-children"><?php esc_html_e('Children', 'guest-selector-field'); ?></label>
+                                <label class="guest-selector-sub-heading" for="<?php echo esc_attr($id); ?>-children"><?php esc_html_e('Children', 'smart-guest-selector-for-contact-form-7'); ?></label>
                                 <div class="guest-selector-control guest-selector-control-children">
                                     <select id="<?php echo esc_attr($id); ?>-children" name="<?php echo esc_attr($children_name); ?>" class="guest-selector-children">
                                         <?php echo $this->render_select_options(0, max($default_total, 0), $default_children); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -261,7 +262,7 @@ final class Guest_Selector_Field_Plugin {
 
                         <?php if ($child_ages_enabled) : ?>
                             <div class="guest-selector-ages-section" <?php echo $default_children === 0 ? 'hidden' : ''; ?>>
-                                <div class="guest-selector-sub-heading"><?php esc_html_e('Children Ages (optional)', 'guest-selector-field'); ?></div>
+                                <div class="guest-selector-sub-heading"><?php esc_html_e('Children Ages (optional)', 'smart-guest-selector-for-contact-form-7'); ?></div>
                                 <div class="guest-selector-child-ages" data-age-name="<?php echo esc_attr($ages_name); ?>"></div>
                             </div>
                         <?php endif; ?>
@@ -423,4 +424,4 @@ final class Guest_Selector_Field_Plugin {
     }
 }
 
-new Guest_Selector_Field_Plugin();
+new Swaranan_Guest_Selector_For_Contact_Form_7_Plugin();
