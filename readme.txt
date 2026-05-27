@@ -1,6 +1,6 @@
-=== CF7 Guests Field ===
+=== Guest Selector Field ===
 Contributors: swaranan
-Tags: contact form 7, cf7, guests, booking, travel
+Tags: contact form 7, guests, participants
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
@@ -12,7 +12,7 @@ Adds a smart Guests field for Contact Form 7 with Adults, Children, and optional
 
 == Description ==
 
-CF7 Guests Field extends Contact Form 7 by adding an advanced Guests selector suitable for hotel bookings, tours, reservations, events, and travel forms.
+Guest Selector Field extends Contact Form 7 by adding an advanced Guests selector suitable for hotel bookings, tours, reservations, events, and travel forms.
 
 Instead of a simple number field, users can:
 
@@ -35,18 +35,18 @@ The plugin integrates directly into the Contact Form 7 form editor with its own 
 - Optional first dropdown label using `first_as_label`
 - Validation for total guest count
 - Mail tags support
-- Easy shortcode/tag generator inside CF7 editor
+- Easy shortcode/tag generator inside Contact Form 7 editor
 
 = Example Form Tag =
 
-[cf7_guests* guests min:1 max:10 label:Total label:Guests first_as_label child_ages]
+[guest_selector* guests min:1 max:10 label:Total label:Guests first_as_label child_ages]
 
 = Available Mail Tags =
 
 [guests]
 [guests_adults]
 [guests_children]
-[cf7-guests-summary]
+[guest-selector-summary]
 
 = Example Output =
 
@@ -57,7 +57,7 @@ Child Ages: 5, 8
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/cf7-guests-field` directory, or install the plugin through the WordPress plugins screen.
+1. Upload the plugin files to the `/wp-content/plugins/guest-selector-field` directory, or install the plugin through the WordPress plugins screen.
 2. Activate the plugin through the "Plugins" screen in WordPress.
 3. Make sure Contact Form 7 is installed and activated.
 4. Edit a Contact Form 7 form.
@@ -78,7 +78,7 @@ Yes. Simply omit the `child_ages` option from the form tag.
 
 Yes. Use the required version of the tag:
 
-[cf7_guests* guests]
+[guest_selector* guests]
 
 = Can I limit the number of guests? =
 
@@ -86,7 +86,7 @@ Yes. Use `min:` and `max:` options.
 
 Example:
 
-[cf7_guests guests min:1 max:8]
+[guest_selector guests min:1 max:8]
 
 = Can I show the label as the first dropdown option? =
 
@@ -94,7 +94,7 @@ Yes. Add `first_as_label` and provide a `label:` value.
 
 Example:
 
-[cf7_guests participants min:0 max:20 default:0 label:Number label:of label:Participants first_as_label]
+[guest_selector participants min:0 max:20 default:0 label:Number label:of label:Participants first_as_label]
 
 == Screenshots ==
 

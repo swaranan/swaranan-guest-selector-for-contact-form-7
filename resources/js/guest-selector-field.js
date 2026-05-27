@@ -28,7 +28,7 @@
   }
 
   function buildAgeFields(wrapper, count) {
-    var ageBox = wrapper.querySelector('.cf7-guests-child-ages');
+    var ageBox = wrapper.querySelector('.guest-selector-child-ages');
     if (!ageBox) return;
 
     var ageName = ageBox.getAttribute('data-age-name');
@@ -40,18 +40,18 @@
 
     for (var i = 0; i < count; i++) {
       var row = document.createElement('div');
-      row.className = 'cf7-guests-age-row';
+      row.className = 'guest-selector-age-row';
 
       var label = document.createElement('label');
       label.textContent = 'Child ' + (i + 1) + ' age';
 
       var control = document.createElement('div');
-      control.className = 'cf7-guests-control cf7-guests-control-age';
+      control.className = 'guest-selector-control guest-selector-control-age';
 
       var input = document.createElement('input');
       input.type = 'number';
       input.name = ageName;
-      input.className = 'cf7-guests-child-age';
+      input.className = 'guest-selector-child-age';
       input.min = '0';
       input.max = '17';
       input.placeholder = 'Children ' + (i + 1) + ' Age';
@@ -67,18 +67,18 @@
   }
 
   function syncAgesVisibility(wrapper, count) {
-    var agesSection = wrapper.querySelector('.cf7-guests-ages-section');
+    var agesSection = wrapper.querySelector('.guest-selector-ages-section');
     if (!agesSection) return;
 
     agesSection.hidden = count === 0;
   }
 
   function setupGuestsField(wrapper) {
-    var totalInput = wrapper.querySelector('.cf7-guests-total');
-    var card = wrapper.querySelector('.cf7-guests-card');
-    var panel = wrapper.querySelector('.cf7-guests-panel');
-    var adultsInput = wrapper.querySelector('.cf7-guests-adults');
-    var childrenInput = wrapper.querySelector('.cf7-guests-children');
+    var totalInput = wrapper.querySelector('.guest-selector-total');
+    var card = wrapper.querySelector('.guest-selector-card');
+    var panel = wrapper.querySelector('.guest-selector-panel');
+    var adultsInput = wrapper.querySelector('.guest-selector-adults');
+    var childrenInput = wrapper.querySelector('.guest-selector-children');
 
     if (!totalInput || !card || !panel || !adultsInput || !childrenInput) return;
 
@@ -140,7 +140,7 @@
   }
 
   function init() {
-    document.querySelectorAll('.cf7-guests-field').forEach(setupGuestsField);
+    document.querySelectorAll('.guest-selector-field').forEach(setupGuestsField);
   }
 
   if (document.readyState === 'loading') {

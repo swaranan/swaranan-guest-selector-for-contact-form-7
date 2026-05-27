@@ -1,4 +1,4 @@
-WordPress.org plugin directory assets for CF7 Guests Field.
+WordPress.org plugin directory assets for Guest Selector Field.
 
 Use these files in the plugin SVN repository's top-level `assets/` directory:
 

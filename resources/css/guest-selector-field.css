@@ -1,51 +1,51 @@
-.cf7-guests-field,
-.cf7-guests-field * {
+.guest-selector-field,
+.guest-selector-field * {
   box-sizing: border-box;
 }
 
-.cf7-guests-panel[hidden] {
+.guest-selector-panel[hidden] {
   display: none !important;
 }
 
-.cf7-guests-card {
+.guest-selector-card {
   border: 1px solid #d9d9d9;
   border-radius: 12px;
   padding: 1rem;
   background: #fff;
 }
 
-.cf7-guests-block-total + .cf7-guests-card,
-.cf7-guests-panel > .cf7-guests-block + .cf7-guests-block,
-.cf7-guests-ages-section,
-.cf7-guests-help {
+.guest-selector-block-total + .guest-selector-card,
+.guest-selector-panel > .guest-selector-block + .guest-selector-block,
+.guest-selector-ages-section,
+.guest-selector-help {
   margin-top: 1rem;
 }
 
-.cf7-guests-heading {
+.guest-selector-heading {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 700;
 }
-.cf7-guests-sub-heading {
+.guest-selector-sub-heading {
   display: block;
   font-size: 0.85em;
   margin-bottom: 0.4rem;
   font-weight: 700;
 }
 
-.cf7-guests-split {
+.guest-selector-split {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.cf7-guests-child-ages {
+.guest-selector-child-ages {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
 }
 
-.cf7-guests-control {
+.guest-selector-control {
   position: relative;
   display: flex;
   align-items: center;
@@ -55,10 +55,10 @@
   background: #fff;
 }
 
-.cf7-guests-total,
-.cf7-guests-adults,
-.cf7-guests-children,
-.cf7-guests-child-age {
+.guest-selector-total,
+.guest-selector-adults,
+.guest-selector-children,
+.guest-selector-child-age {
   width: 100%;
   min-width: 0;
   margin: 0 !important;
@@ -70,7 +70,7 @@
   font: inherit;
 }
 
-.cf7-guests-age-row label {
+.guest-selector-age-row label {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -80,8 +80,8 @@
 }
 
 @media (max-width: 767px) {
-  .cf7-guests-split,
-  .cf7-guests-child-ages {
+  .guest-selector-split,
+  .guest-selector-child-ages {
     grid-template-columns: 1fr;
   }
 }
