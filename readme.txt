@@ -1,4 +1,4 @@
-=== Smart Guest Selector for Contact Form 7 ===
+=== Swaranan Guest Selector for Contact Form 7 ===
 Contributors: swaranan
 Tags: contact form 7, guests, participants
 Requires at least: 5.8
@@ -8,11 +8,11 @@ Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a smart Guests field for Contact Form 7 with Adults, Children, and optional Children Age selection.
+Adds a guests field for Contact Form 7 with Adults, Children, and optional Children Age selection.
 
 == Description ==
 
-Smart Guest Selector for Contact Form 7 extends Contact Form 7 by adding an advanced Guests selector suitable for hotel bookings, tours, reservations, events, and travel forms.
+Swaranan Guest Selector for Contact Form 7 extends Contact Form 7 by adding an advanced Guests selector suitable for hotel bookings, tours, reservations, events, and travel forms.
 
 Instead of a simple number field, users can:
 
@@ -57,7 +57,7 @@ Child Ages: 5, 8
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/smart-guest-selector-for-contact-form-7` directory, or install the plugin through the WordPress plugins screen.
+1. Upload the plugin files to the `/wp-content/plugins/swaranan-guest-selector-for-contact-form-7` directory, or install the plugin through the WordPress plugins screen.
 2. Activate the plugin through the "Plugins" screen in WordPress.
 3. Make sure Contact Form 7 is installed and activated.
 4. Edit a Contact Form 7 form.
