@@ -54,7 +54,7 @@
       input.className = 'guest-selector-child-age';
       input.min = '0';
       input.max = '17';
-      input.placeholder = 'Children ' + (i + 1) + ' Age';
+      input.placeholder = 'Child ' + (i + 1) + ' Age';
       input.required = true;
       input.setAttribute('aria-label', 'Child ' + (i + 1) + ' age');
       input.value = existing[i] || '';
