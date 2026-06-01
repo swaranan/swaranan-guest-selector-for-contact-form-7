@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Swaranan Guest Selector for Contact Form 7
  * Description: Adds a guest selector field for Contact Form 7 with adults, children, and optional child age inputs.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: swaranan
  * License: GPL-2.0-or-later
  * Requires Plugins: contact-form-7
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 }
 
 final class Swaranan_Guest_Selector_For_Contact_Form_7_Plugin {
-    const VERSION = '1.1.0';
+    const VERSION = '1.1.1';
 
     public function __construct() {
         add_action('plugins_loaded', array($this, 'init'));
