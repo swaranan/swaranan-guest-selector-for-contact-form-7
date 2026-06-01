@@ -104,6 +104,10 @@ Example:
 
 == Changelog ==
 
+= 1.1.1 =
+* Updated Child Age field placeholder.
+* Updated screenshot
+
 = 1.1.0 =
 * Added Contact Form 7 tag generator button
 * Added Guests field settings popup
