@@ -2,7 +2,7 @@
 Contributors: swaranan
 Tags: contact form 7, guests, participants
 Requires at least: 5.8
-Tested up to: 7.0.2
+Tested up to: 7.1
 Requires PHP: 7.4
 Stable tag: 1.1.2
 License: GPLv2 or later
@@ -105,7 +105,7 @@ Example:
 == Changelog ==
 
 = 1.1.2 =
-* Updated support upto WordPress 7.0.2
+* Tested upto wordpress 7.1
 
 = 1.1.1 =
 * Updated Child Age field placeholder.
