@@ -136,4 +136,12 @@ This plugin is licensed under the GPLv2 or later.
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&legend=bottom-right)](https://www.star-history.com/?repos=swaranan%2Fswaranan-guest-selector-for-contact-form-7&type=date&legend=bottom-right)
+## Star History
+
+<a href="https://www.star-history.com/?repos=swaranan%2Fswaranan-guest-selector-for-contact-form-7&type=date&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&theme=dark&legend=bottom-right" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&legend=bottom-right" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&legend=bottom-right" />
+ </picture>
+</a>
