@@ -130,3 +130,14 @@ Includes Contact Form 7 editor integration and enhanced guest selector UI.
 == License ==
 
 This plugin is licensed under the GPLv2 or later.
+
+
+== Star History ==
+
+<a href="https://www.star-history.com/?repos=swaranan%2Fswaranan-guest-selector-for-contact-form-7&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&legend=top-left" />
+ </picture>
+</a>
