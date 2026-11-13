@@ -66,7 +66,7 @@ Child Ages: 5, 8
 
 ## Frequently Asked Questions ##
 
-# Does this plugin require Contact Form 7? #
+### Does this plugin require Contact Form 7? ###
 
 Yes. Contact Form 7 must be installed and activated.
 
