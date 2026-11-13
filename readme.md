@@ -104,14 +104,14 @@ Example:
 
 ## Changelog ##
 
-# 1.1.2 #
+### 1.1.2 ###
 * Tested upto wordpress 7.1
 
-# 1.1.1 #
+### 1.1.1 ###
 * Updated Child Age field placeholder.
 * Updated screenshot
 
-# 1.1.0 #
+### 1.1.0 ###
 * Added Contact Form 7 tag generator button
 * Added Guests field settings popup
 * Improved frontend UI
@@ -119,7 +119,7 @@ Example:
 * Added validation improvements
 * Added mail tag support
 
-# 1.0.0 #
+### 1.0.0 ###
 * Initial release
 
 ## Upgrade Notice ##
