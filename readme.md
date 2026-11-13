@@ -1,4 +1,4 @@
-### Swaranan Guest Selector for Contact Form 7 ###
+# Swaranan Guest Selector for Contact Form 7 #
 Contributors: swaranan
 Tags: contact form 7, guests, participants
 Requires at least: 5.8
@@ -24,7 +24,7 @@ Instead of a simple number field, users can:
 
 The plugin integrates directly into the Contact Form 7 form editor with its own tag generator button.
 
-# Features #
+### Features ###
 
 - Adds a custom Guests field type to Contact Form 7
 - Adults & Children selector UI
@@ -37,18 +37,18 @@ The plugin integrates directly into the Contact Form 7 form editor with its own 
 - Mail tags support
 - Easy shortcode/tag generator inside Contact Form 7 editor
 
-# Example Form Tag #
+### Example Form Tag ###
 
 [guest_selector* guests min:1 max:10 label:Total label:Guests first_as_label child_ages]
 
-# Available Mail Tags #
+### Available Mail Tags ###
 
 [guests]
 [guests_adults]
 [guests_children]
 [guest-selector-summary]
 
-# Example Output #
+### Example Output ###
 
 Guests: 4
 Adults: 2
@@ -70,17 +70,17 @@ Child Ages: 5, 8
 
 Yes. Contact Form 7 must be installed and activated.
 
-# Can I disable child age fields? #
+### Can I disable child age fields? ###
 
 Yes. Simply omit the `child_ages` option from the form tag.
 
-# Does it support required fields? #
+### Does it support required fields? ###
 
 Yes. Use the required version of the tag:
 
 [guest_selector* guests]
 
-# Can I limit the number of guests? #
+### Can I limit the number of guests? ###
 
 Yes. Use `min:` and `max:` options.
 
@@ -88,7 +88,7 @@ Example:
 
 [guest_selector guests min:1 max:8]
 
-# Can I show the label as the first dropdown option? #
+### Can I show the label as the first dropdown option? ###
 
 Yes. Add `first_as_label` and provide a `label:` value.
 
