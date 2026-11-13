@@ -124,7 +124,7 @@ Example:
 
 ## Upgrade Notice ##
 
-# 1.1.0 #
+### 1.1.0 ###
 Includes Contact Form 7 editor integration and enhanced guest selector UI.
 
 ## License ##
