@@ -1,4 +1,4 @@
-=== Swaranan Guest Selector for Contact Form 7 ===
+### Swaranan Guest Selector for Contact Form 7 ###
 Contributors: swaranan
 Tags: contact form 7, guests, participants
 Requires at least: 5.8
@@ -10,7 +10,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Adds a guests field for Contact Form 7 with Adults, Children, and optional Children Age selection.
 
-== Description ==
+## Description ##
 
 Swaranan Guest Selector for Contact Form 7 extends Contact Form 7 by adding an advanced Guests selector suitable for hotel bookings, tours, reservations, events, and travel forms.
 
@@ -24,7 +24,7 @@ Instead of a simple number field, users can:
 
 The plugin integrates directly into the Contact Form 7 form editor with its own tag generator button.
 
-= Features =
+# Features #
 
 - Adds a custom Guests field type to Contact Form 7
 - Adults & Children selector UI
@@ -37,25 +37,25 @@ The plugin integrates directly into the Contact Form 7 form editor with its own 
 - Mail tags support
 - Easy shortcode/tag generator inside Contact Form 7 editor
 
-= Example Form Tag =
+# Example Form Tag #
 
 [guest_selector* guests min:1 max:10 label:Total label:Guests first_as_label child_ages]
 
-= Available Mail Tags =
+# Available Mail Tags #
 
 [guests]
 [guests_adults]
 [guests_children]
 [guest-selector-summary]
 
-= Example Output =
+# Example Output #
 
 Guests: 4
 Adults: 2
 Children: 2
 Child Ages: 5, 8
 
-== Installation ==
+## Installation ##
 
 1. Upload the plugin files to the `/wp-content/plugins/swaranan-guest-selector-for-contact-form-7` directory, or install the plugin through the WordPress plugins screen.
 2. Activate the plugin through the "Plugins" screen in WordPress.
@@ -64,23 +64,23 @@ Child Ages: 5, 8
 5. Click the new "Guests" button in the form editor toolbar.
 6. Configure your field options and insert the tag.
 
-== Frequently Asked Questions ==
+## Frequently Asked Questions ##
 
-= Does this plugin require Contact Form 7? =
+# Does this plugin require Contact Form 7? #
 
 Yes. Contact Form 7 must be installed and activated.
 
-= Can I disable child age fields? =
+# Can I disable child age fields? #
 
 Yes. Simply omit the `child_ages` option from the form tag.
 
-= Does it support required fields? =
+# Does it support required fields? #
 
 Yes. Use the required version of the tag:
 
 [guest_selector* guests]
 
-= Can I limit the number of guests? =
+# Can I limit the number of guests? #
 
 Yes. Use `min:` and `max:` options.
 
@@ -88,7 +88,7 @@ Example:
 
 [guest_selector guests min:1 max:8]
 
-= Can I show the label as the first dropdown option? =
+# Can I show the label as the first dropdown option? #
 
 Yes. Add `first_as_label` and provide a `label:` value.
 
@@ -96,22 +96,22 @@ Example:
 
 [guest_selector participants min:0 max:20 default:0 label:Number label:of label:Participants first_as_label]
 
-== Screenshots ==
+## Screenshots ##
 
 1. Guests button inside Contact Form 7 editor
 2. Guests option inside Contact Form 7 editor
 3. Frontend - Adults & Children dropdown UI with Children age
 
-== Changelog ==
+## Changelog ##
 
-= 1.1.2 =
+# 1.1.2 #
 * Tested upto wordpress 7.1
 
-= 1.1.1 =
+# 1.1.1 #
 * Updated Child Age field placeholder.
 * Updated screenshot
 
-= 1.1.0 =
+# 1.1.0 #
 * Added Contact Form 7 tag generator button
 * Added Guests field settings popup
 * Improved frontend UI
@@ -119,25 +119,25 @@ Example:
 * Added validation improvements
 * Added mail tag support
 
-= 1.0.0 =
+# 1.0.0 #
 * Initial release
 
-== Upgrade Notice ==
+## Upgrade Notice ##
 
-= 1.1.0 =
+# 1.1.0 #
 Includes Contact Form 7 editor integration and enhanced guest selector UI.
 
-== License ==
+## License ##
 
 This plugin is licensed under the GPLv2 or later.
 
 
-== Star History ==
+## Star History ##
 
-<a href="https://www.star-history.com/?repos=swaranan%2Fswaranan-guest-selector-for-contact-form-7&type=date&legend=bottom-right">
+<a href#"https://www.star-history.com/?repos#swaranan%2Fswaranan-guest-selector-for-contact-form-7&type#date&legend#bottom-right">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&theme=dark&legend=bottom-right" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&legend=bottom-right" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=swaranan/swaranan-guest-selector-for-contact-form-7&type=date&legend=bottom-right" />
+   <source media#"(prefers-color-scheme: dark)" srcset#"https://api.star-history.com/chart?repos#swaranan/swaranan-guest-selector-for-contact-form-7&type#date&theme#dark&legend#bottom-right" />
+   <source media#"(prefers-color-scheme: light)" srcset#"https://api.star-history.com/chart?repos#swaranan/swaranan-guest-selector-for-contact-form-7&type#date&legend#bottom-right" />
+   <img alt#"Star History Chart" src#"https://api.star-history.com/chart?repos#swaranan/swaranan-guest-selector-for-contact-form-7&type#date&legend#bottom-right" />
  </picture>
 </a>
